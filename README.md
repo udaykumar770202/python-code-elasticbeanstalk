@@ -40,19 +40,29 @@ Before you begin, ensure you have the following:
    - Upload your CloudFormation template and the application ZIP file to an S3 bucket.
    - Use AWS SAM to deploy the CloudFormation stack and pass environment variables:
    - do sam build in project location, it will build the template
+     ```
      sam build
+     ```
    - do sam deploy in project location
+     ```
      sam deploy --guided
+     ```
    - if your facing any issue with CAPABILITY_IAM then run below command
+   
+     ```     
      sam deploy --template-file template.yaml --stack-name YourStackName --capabilities CAPABILITY_IAM
      ```
      Replace the placeholders with your actual values for VPC ID, subnet ID, environment, instance type, load balancer subnet ID, load balancer visibility, solution stack, S3 bucket name, and ZIP file name. Also, create an `env.json` file containing your environment variables.
 
-# code shouldbe in s3 and while deploying template then need to give bukcet name and key
+## code should be in s3 and while deploying template then need to give bukcet name and key
 
-example 
-BucketName: yourbucketname
-BucketFileName: your zip object
+example
+
+     ```
+     BucketName: yourbucketname
+     BucketFileName: your zip object
+     ```
+
 
 5. **Access Your Application:**
    - Once deployment is complete, access your Python application using the URL provided by Elastic Beanstalk.
@@ -74,3 +84,6 @@ Contributions to this CloudFormation template are welcome. Feel free to submit p
 ## License
 
 This CloudFormation template is licensed under the MIT License.
+
+## try without sam also
+you can directly deploy template.yaml in cloudfromation 
